@@ -17,7 +17,7 @@
 */
 
 #include "TLC59xx.h"
-TLC59711 led_array(1);
+TLC59711 led_array(1, SPI);
 
 void setup()
 {

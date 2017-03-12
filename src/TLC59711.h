@@ -1,6 +1,8 @@
 #pragma once
 
 /*
+  Original library: https://github.com/adafruit/Adafruit_TLC59711
+
   Copyright (C) 2014 Alik <aliktab@gmail.com> All rights reserved.
 
   This library is free software; you can redistribute it and/or
@@ -46,7 +48,7 @@ public:
 
 
   // Constructor: bymber of cascaded TLC59711
-  TLC59711(uint8_t _qty);
+  TLC59711(uint8_t _qty, SPIClass & _spi);
 
   bool begin();
 
@@ -69,6 +71,8 @@ protected:
   uint8_t     m_BCb;
 
   uint16_t *  m_buffer;
+
+  SPIClass &  m_spi;
 };
 
 

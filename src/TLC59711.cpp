@@ -21,7 +21,8 @@
 #define TLC59711_MAGIC_CMD    0x25
 
 
-TLC59711::TLC59711(uint8_t _qty)
+TLC59711::TLC59711(uint8_t _qty, SPIClass & _spi) :
+  m_spi(_spi)
 {
   m_chips_qty  = _qty;
   m_buffer = (uint16_t *)calloc(2 * TLC59711_CHANNELS_QTY, m_chips_qty);
@@ -33,11 +34,11 @@ bool TLC59711::begin()
 {
   if (!m_buffer) return false;
 
-  SPI.begin(SPI_MODE_MASTER);
+  m_spi.begin(SPI_MODE_MASTER);
 
-  SPI.setBitOrder(MSBFIRST);
-  SPI.setClockDivider(SPI_CLOCK_DIV64);
-  SPI.setDataMode(SPI_MODE0);
+  m_spi.setBitOrder(MSBFIRST);
+  m_spi.setClockDivider(SPI_CLOCK_DIV64);
+  m_spi.setDataMode(SPI_MODE0);
 
   return true;
 }
@@ -87,17 +88,17 @@ void TLC59711::show_data()
 
   for (int i = 0; i < m_chips_qty; i++)
   {
-    SPI.transfer(command >> 24);
-    SPI.transfer(command >> 16);
-    SPI.transfer(command >>  8);
-    SPI.transfer(command      );
+    m_spi.transfer(command >> 24);
+    m_spi.transfer(command >> 16);
+    m_spi.transfer(command >>  8);
+    m_spi.transfer(command      );
 
     // TLC59711_CHANNELS_QTY channels per TLC59711
     for (int8_t j = 11; j >= 0 ; j--)
     {
       // 16 bits per channel, send MSB first
-      SPI.transfer(m_buffer[i * TLC59711_CHANNELS_QTY + j] >> 8);
-      SPI.transfer(m_buffer[i * TLC59711_CHANNELS_QTY + j]     );
+      m_spi.transfer(m_buffer[i * TLC59711_CHANNELS_QTY + j] >> 8);
+      m_spi.transfer(m_buffer[i * TLC59711_CHANNELS_QTY + j]     );
     }
   }
 

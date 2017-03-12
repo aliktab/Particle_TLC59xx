@@ -20,7 +20,7 @@ Connect any TLC59xx hardware, add the TLC59xx library to your project and follow
 
 ```
 #include "TLC59xx.h"
-TLC59711 led_array(1);
+TLC59711 led_array(1, SPI);
 
 void setup()
 {
