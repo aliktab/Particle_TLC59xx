@@ -1,7 +1,7 @@
 #pragma once
 
 /*
-  Original library: https://github.com/adafruit/Adafruit_TLC59711
+  Based on: https://github.com/adafruit/Adafruit_TLC59711
 
   Copyright (C) 2014 Alik <aliktab@gmail.com> All rights reserved.
 

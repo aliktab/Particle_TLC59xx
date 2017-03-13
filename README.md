@@ -1,18 +1,9 @@
-# NeoRingDsp
+# TLC59xx
 
-A Particle library for HT16K33 chip
+*Particle Library for the TLC59xx chip series*
 
-## Welcome to your library!
-
-To get started, modify the sources in [src](src). Rename the example folder inside [examples](examples) to a more meaningful name and add additional examples in separate folders.
-
-To compile your example you can use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).
-
-Libraries can also depend on other libraries. To add a dependency use [`particle library add`](https://docs.particle.io/guide/tools-and-features/cli#adding-a-library) or [library management](https://docs.particle.io/guide/tools-and-features/dev/#managing-libraries) in Desktop IDE.
-
-After the library is done you can upload it with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. If you wish to make your library public, use `particle library publish` or `Publish` command.
-
-_TODO: update this README_
+Particle library to control TLC59xx chip series, supports connection via any hardware SPI.
+Currently supports the only TLC59711 chip. Support for the TLC5947 is planned.
 
 ## Usage
 
@@ -40,10 +31,6 @@ void loop()
 ```
 
 See the [examples](examples) folder for more details.
-
-## Documentation
-
-TODO: Describe
 
 ## Contributing
 
