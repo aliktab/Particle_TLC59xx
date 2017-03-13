@@ -48,7 +48,10 @@ public:
 
 
   // Constructor: bymber of cascaded TLC59711
-  TLC59711(uint8_t _qty, SPIClass & _spi);
+  TLC59711(
+      uint8_t    _qty = 1,
+      SPIClass & _spi = SPI
+    );
 
   bool begin();
 
