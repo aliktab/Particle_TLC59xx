@@ -47,12 +47,13 @@ public:
   };
 
 
-  // Constructor: bymber of cascaded TLC59711
+  // сonstructor: bymber of cascaded TLC59711
   TLC59711(
       uint8_t    _qty = 1,
       SPIClass & _spi = SPI
     );
 
+  // initialize chip and spi interface if needed
   bool begin();
 
   void set_BC(uint8_t _r, uint8_t _g, uint8_t _b);
